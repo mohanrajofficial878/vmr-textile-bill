@@ -1,0 +1,93 @@
+* { box-sizing: border-box; }
+:root { font-family: Arial, Helvetica, sans-serif; color: #171717; }
+body { margin: 0; padding: 24px; background: #eef2f6; }
+.page { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px; border: 2px solid #172554; box-shadow: 0 8px 24px #00000012; }
+.bill-header { text-align: center; border: 2px solid #172554; padding: 16px 10px; margin-bottom: 18px; }
+.brand-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.brand-row > div:nth-child(2) { flex: 1; }
+.bill-header h1 { margin: 0 0 5px; color: #172554; font-size: 30px; letter-spacing: 2px; }
+.tagline { color: #64748b; font-size: 10px !important; letter-spacing: 2px; font-weight: 700; }
+.vmr-logo { width: 64px; height: 64px; flex: 0 0 64px; border: 3px solid #172554; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; color: #172554; background: #f8fafc; line-height: 1; }
+.vmr-logo span { font-weight: 900; font-size: 18px; letter-spacing: -1px; }
+.vmr-logo small { font-size: 7px; font-weight: 800; margin-top: 4px; letter-spacing: 1px; }
+.bill-header p { margin: 5px 0; font-size: 14px; }
+.bill-info { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 18px; }
+.bill-info label { font-weight: 700; font-size: 13px; }
+.bill-info label:last-child { grid-column: 1 / -1; }
+input { font: inherit; }
+.bill-info input { width: 100%; margin-top: 5px; border: 1px solid #777; padding: 9px; border-radius: 2px; }
+.table-wrap { width: 100%; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+th, td { border: 1.5px solid #222; padding: 8px; }
+th { background: #e8eefb; color: #172554; font-size: 14px; }
+.sno { width: 70px; }
+.amount { width: 180px; }
+.remove-col { width: 80px; }
+td:first-child { text-align: center; }
+td input { width: 100%; border: 0; outline: none; padding: 7px 4px; background: transparent; }
+td input:focus { background: #fff8dc; }
+tfoot td { font-weight: 700; background: #f1f5f9; }
+.total-label { text-align: right; }
+.total-amount { text-align: right; white-space: nowrap; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+button { border: 0; border-radius: 5px; padding: 11px 16px; font-weight: 700; cursor: pointer; background: #172554; color: #fff; }
+button:hover { opacity: .9; }
+button.secondary { background: #64748b; }
+.remove-btn { background: #b91c1c; padding: 5px 10px; }
+.bill-footer { display: flex; justify-content: space-between; align-items: end; gap: 15px; margin-top: 35px; }
+.signatures { display: flex; align-items: end; gap: 24px; }
+.owner-signature { min-width: 170px; text-align: center; font-size: 12px; border-top: 1px solid #333; padding-top: 3px; }
+.owner-signature img { display: block; width: 145px; height: 48px; object-fit: contain; margin: -38px auto 0; mix-blend-mode: multiply; }
+.saved-note { font-size: 11px; color: #64748b; text-align: center; margin-top: 14px; }
+.bill-footer p { font-weight: 700; }
+.signature { min-width: 170px; text-align: center; border-top: 1px solid #333; padding-top: 7px; font-size: 12px; }
+@media (max-width: 600px) {
+  body { padding: 8px; }
+  .page { padding: 12px; }
+  .bill-header h1 { font-size: 20px; }
+  .vmr-logo { width: 46px; height: 46px; flex-basis: 46px; }
+  .vmr-logo span { font-size: 14px; }
+  .vmr-logo small { font-size: 6px; }
+  .logo-right { display: none; }
+  .signatures { flex-direction: column; align-items: stretch; gap: 28px; }
+  .amount { width: 125px; }
+  .sno { width: 48px; }
+  .remove-col { width: 65px; }
+  th, td { padding: 5px; }
+  .bill-footer { flex-direction: column; align-items: stretch; }
+  .signature { align-self: flex-end; }
+}
+@media print {
+  @page { size: A4; margin: 12mm; }
+  body { padding: 0; background: #fff; }
+  .page { max-width: none; border: 1px solid #222; box-shadow: none; padding: 12px; }
+  .no-print, .actions { display: none !important; }
+  input { color: #000; }
+  .bill-info input { border: 0; border-bottom: 1px solid #777; padding: 5px 0; }
+  td input { padding: 4px 0; }
+  .bill-header { break-inside: avoid; }
+}
+
+.dashboard { margin-top: 24px; padding: 16px; border: 1.5px solid #172554; background: #f8fafc; }
+.dashboard h2 { margin: 0 0 12px; color: #172554; font-size: 18px; }
+.summary-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.summary-card { border: 1px solid #cbd5e1; background: white; padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+.summary-card span { font-size: 12px; color: #475569; }
+.summary-card strong { font-size: 20px; color: #172554; overflow-wrap: anywhere; }
+.summary-help { margin: 10px 0 0; color: #64748b; font-size: 12px; }
+@media (max-width: 600px) { .summary-cards { grid-template-columns: 1fr; } }
+
+.verification { margin-top: 22px; padding: 16px; border: 1.5px solid #172554; border-radius: 6px; }
+.verification h2 { margin: 0 0 8px; color: #172554; font-size: 18px; }
+.verification > p { font-size: 13px; line-height: 1.45; }
+.verify-layout { display: grid; grid-template-columns: 150px 1fr; gap: 18px; align-items: center; }
+.qr-panel { text-align: center; font-size: 11px; color: #475569; }
+.qr-panel img { display: block; width: 130px; height: 130px; margin: 0 auto 6px; border: 1px solid #ddd; }
+.verify-controls label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 5px; }
+.verify-entry { display: flex; gap: 8px; margin-bottom: 9px; }
+.verify-entry input { min-width: 0; flex: 1; border: 1px solid #94a3b8; padding: 10px; }
+.verify-controls button { margin-bottom: 6px; }
+.scan-video { width: 100%; max-width: 360px; margin-top: 8px; border-radius: 6px; background: #111; }
+.verify-result { font-size: 13px; font-weight: 700; margin-bottom: 0; }
+@media (max-width: 600px) { .verify-layout { grid-template-columns: 1fr; } .verify-entry { flex-direction: column; } }
+@media print { .verification { break-inside: avoid; } .verification > p, .verify-controls, .qr-panel small { display: none !important; } .verify-layout { display: block; } .qr-panel img { width: 95px; height: 95px; margin-left: auto; margin-right: 0; } }

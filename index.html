@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>V.M.R Textile Bill</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="bill-header">
+      <div class="brand-row"><div class="vmr-logo" aria-label="VMR logo"><span>VMR</span><small>TEXTILE</small></div><div><h1>V.M.R TEXTILE</h1><p class="tagline">QUALITY • TRUST • SERVICE</p></div><div class="vmr-logo logo-right" aria-hidden="true"><span>VMR</span><small>TEXTILE</small></div></div>
+      <p><strong>Mobile:</strong> 9790490878</p>
+      <p><strong>Mail ID:</strong> mohanrajofficial878</p>
+      <p><strong>Address:</strong> Uthangarai, Krishnagiri Main Road - 635207</p>
+    </header>
+
+    <section class="bill-info">
+      <label>Bill No. <input type="text" id="billNo" readonly></label>
+      <label>Date <input type="date" id="billDate"></label>
+      <label>Customer No. <input type="text" id="customerNo" readonly></label>
+      <label>Customer Name <input type="text" id="customerName" placeholder="Enter customer name"></label>
+    </section>
+
+    <div class="table-wrap">
+      <table id="billTable">
+        <thead>
+          <tr>
+            <th class="sno">S.No</th>
+            <th>Name</th>
+            <th class="amount">Amount (₹)</th>
+            <th class="remove-col no-print">Remove</th>
+          </tr>
+        </thead>
+        <tbody id="billRows">
+          <tr>
+            <td class="row-number">1</td>
+            <td><input class="item-name" type="text" placeholder="Item name"></td>
+            <td><input class="item-amount" type="number" min="0" step="0.01" placeholder="0.00"></td>
+            <td class="no-print"><button class="remove-btn" type="button" aria-label="Remove row">×</button></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2" class="total-label">TOTAL</td>
+            <td id="grandTotal" class="total-amount">₹ 0.00</td>
+            <td class="no-print"></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <section class="verification no-print" aria-label="Bill verification">
+      <h2>Scan &amp; Verify This Bill</h2>
+      <p>Print the bill with its QR code. Scan it using the camera here or enter a bill number to check whether it exists in this browser's saved records.</p>
+      <div class="verify-layout">
+        <div class="qr-panel"><img id="billQr" alt="QR code for this bill"><small>QR contains bill number and total</small></div>
+        <div class="verify-controls">
+          <label for="verifyBillNo">Bill number to verify</label>
+          <div class="verify-entry"><input id="verifyBillNo" type="text" placeholder="e.g. VMR-0001"><button id="verifyBtn" type="button">Verify Bill</button></div>
+          <button id="scanBtn" type="button" class="secondary">Scan QR with Camera</button>
+          <video id="scanVideo" playsinline class="scan-video" hidden></video>
+          <p id="verifyResult" role="status" class="verify-result">No bill checked yet.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard no-print" aria-label="Business summary">
+      <h2>Business Summary</h2>
+      <div class="summary-cards">
+        <div class="summary-card"><span>This Month's Income</span><strong id="monthlyIncome">₹ 0.00</strong></div>
+        <div class="summary-card"><span>Total Customers</span><strong id="customerCount">0</strong></div>
+        <div class="summary-card"><span>Bills This Month</span><strong id="monthlyBills">0</strong></div>
+      </div>
+      <p class="summary-help">Summary is calculated from bills saved in this browser.</p>
+    </section>
+
+    <div class="actions no-print">
+      <button id="addRowBtn" type="button">+ Add Item</button>
+      <button id="printBtn" type="button">Print / Save as PDF</button>
+      <button id="clearBtn" type="button" class="secondary">Clear Bill</button>
+    </div>
+
+    <footer class="bill-footer">
+      <p>Thank you! Visit Again.</p>
+      <div class="signatures"><div class="signature">Customer Signature</div><div class="owner-signature"><img src="owner-signature.jpg" alt="Owner signature"><div>Owner Signature</div></div></div>
+    </footer>
+    <p class="saved-note no-print" id="savedNote">Bill data is saved automatically in this browser.</p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
